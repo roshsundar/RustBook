@@ -1,3 +1,12 @@
+/* Summary
+
+    - Each heap data allocation must be owned by exactly one variable
+    - Rust deallocs heap data once its owner goes out of scope
+    - Ownership can be transferred by moves
+        - happens on assignments and function calls
+    - Heap data an only be accessed through its current owner, not a previous owner
+*/
+
 fn main() {
     {
         // Vars will normally live on stack
@@ -65,14 +74,6 @@ fn main() {
         println!("{full}, originally {first}");
     }
 
-    /* Summary
-
-        - Each heap data allocation must be owned by exactly one variable
-        - Rust deallocs heap data once its owner goes out of scope
-        - Ownership can be transferred by moves
-            - happens on assignments and function calls
-        - Heap data an only be accessed through its current owner, not a previous owner
-    */
 }
 
 fn consume_box(box_arg: Box<i32>) {
