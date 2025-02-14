@@ -145,8 +145,7 @@ let n: i32 = *n_ref; // value 0 is copied into n
 
 ! Can't do this with strings
 
-let v: Vec<String> =
-  vec![String::from("Hello world")];
+let v: Vec<String> = vec![String::from("Hello world")];
 let s_ref: &String = &v[0];
 let s: String = *s_ref; //! this line errors, cannot dereference a pointer to a string
 
@@ -156,9 +155,11 @@ $   - This is done to prevent double-free
     - s would drop and dealloc "Hello World", and then v does it again
     - undefined behavior
 
-Think of it this way. String types are themselves pointers to heap data. By dereferencing a pointer
-to a String (*&String), you are really getting a pointer to some heap data. So you end up having mutltiple
-pointers to the same piece of data w/o clear ownership.
+v[0] is a String, so even trying the following wouldn't be allowed
+let v: Vec<String> = vec![String::from("Hello world")];
+let s: String = v[0]; //! can't move "Hello world" ownership to s, only v can own it
+
+Remember, assigning a String to another String var will attempt to move ownership.
 
 
 $ In general - if a value owns heap data, it can't be copied w/o a move (ownership transfer).
