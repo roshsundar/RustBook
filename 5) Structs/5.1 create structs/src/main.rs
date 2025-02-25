@@ -67,10 +67,10 @@ fn main() {
 
     /* You may notice that the User struct used String rather than &str.
     It is much more convenient when structs own data, but it is possible to store references.
-    However, requires the use of lifetimes to do so, tbd in a later chapter.
+    However, requires the use of lifetimes to do so, to be shown in a later chapter.
     */
 
-    // The Rust borrow checker will track permissions at both the struct and field level
+    //$ The Rust borrow checker will track permissions at both the struct and field level
     {
         struct Point { x: i32, y: i32 }
 
