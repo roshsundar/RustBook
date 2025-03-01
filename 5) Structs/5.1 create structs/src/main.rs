@@ -1,3 +1,13 @@
+/* Summary:
+- Structs contain various related data called *fields*
+    - Special structs like tuple structs and empty structs exist
+
+- A struct, as well as constituent fields, have separate permissions
+    - Can separately make references to, or transfer ownership of, different fields
+    - Doing so may limit references or ownership transfer of the whole struct
+    - Assigning a struct to a new variable transfers ownership of it and all fields
+*/
+
 /* Like tuples, structs contain related data.
 Unlike tuples, structs have defined 'fields' that are unordered. */
 struct User {

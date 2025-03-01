@@ -1,5 +1,8 @@
+/* Summary:
+Example of how to create and print structs.
+*/
 
-#[derive(Debug)] // *Debug* trait allows the struct to be printed. The *derive* attribute adds the functionality 
+#[derive(Debug)] // *Debug* trait allows the struct to be printed. The *derive* attribute adds the functionality
 struct Rectangle {
     width: u32,
     height: u32,
@@ -32,5 +35,5 @@ fn main() {
 
 fn area(rect: &Rectangle) -> u32 {
     dbg!(rect.width * rect.height) // dbg! prints this expression and returns the ownership of area value to this fn
-    // The area then gets returned from this fn
+                                   // The area then gets returned from this fn
 }
