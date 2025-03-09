@@ -1,0 +1,44 @@
+Packages: A Cargo feature that lets you build, test, and share crates
+Crates: A tree of modules that produces a library or executable
+Modules and use: Let you control the organization, scope, and privacy of paths
+Paths: A way of naming an item, such as a struct, function, or module
+
+Package > Crate > Module > Path
+
+Crates contain modules that can be defined in files.
+
+Crate root = source file that is the root module of the crate
+
+There are 2 types of crate: binary and library
+    - binary = executable, has a main() function
+    - library = used in projects, no main()
+
+
+A package contains:
+    - a Cargo.toml file
+    - at least one crate
+    - as many binary crates, at most one library crate
+
+After using *cargo new* to create a package...
+    - src/main.rs is the crate root of a binary crate (w/ same name as package)
+    - if there's a src/lib.rs, it's the crate root of a library crate (w/ same name as package)
+    - more binary crates can be created under src/bin/ directory
+        - each file added will be a separate binary crate
+
+
+Example: how many crates in the foobar package?
+
+foobar
+├── Cargo.toml
+├── build.rs
+└── src/
+    ├── main.rs
+    ├── util.rs
+    ├── lib.rs
+    └── bin/
+        └── alt.rs
+
+Answer = 3
+    - main.rs = binary crate
+    - lib.rs = library crate
+    - alt.rs = binary crate
