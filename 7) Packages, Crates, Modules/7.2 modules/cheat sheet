@@ -1,0 +1,68 @@
+Cheat sheet of how modules work!
+
+Example binary crate
+----------------------------
+    backyard
+    ├── Cargo.lock
+    ├── Cargo.toml
+    └── src
+        ├── garden
+        │   └── vegetables.rs
+        ├── garden.rs
+        └── main.rs
+
+    Filename: src/main.rs
+    ----------------------------
+    use crate::garden::vegetables::Asparagus;
+
+    pub mod garden; // include code in src/garden.rs
+
+    fn main() {
+        let plant = Asparagus {};
+        println!("I'm growing {plant:?}!");
+    }
+
+    Filename: src/garden.rs
+    ----------------------------
+    pub mod vegetables; // include code in src/garden/vegetables.rs
+
+
+    Filename: src/garden/vegetables.rs
+    ----------------------------
+    pub struct Asparagus {}
+
+
+Start from the crate root:
+    - The compiler first looks at crate root for code to compile
+    - Crate root is src/lib.rs (library crate) or src/main.rs (binary crate)
+
+Declaring modules:
+    - can be done in the crate root file
+    - i.e. "garden" module declare as *mod garden;*
+    - can be found in:
+        - within {} following mod garden;
+        - src/garden.rs
+        - src/garden/mod.rs
+
+Declaring submodules:
+    - In any file other than crate root, can declare submodules
+    - i.e. declare *mod vegetables;* in src/garden.rs
+    - can be found in:
+        - within {} following mod vegetables;
+        - src/garden/vegetables.rs
+        - src/garden/vegetables/mod.rs
+
+Paths to code in modules:
+    - Can refer to a module from elsewhere in the crate (subject to privacy rules) w/ a path
+    - i.e. get Asparagus type in the vegetables module
+        - crate::garden::vegetables::Asparagus
+
+Private vs public:
+    - Code within a module is private from parent modules by default
+    - To make a module public, declare it with *pub mod* instead of *mod*
+    - To make items within a public module public as well, declare them as *pub*
+
+The use keyword:
+    - Within a scope, the *use* keyword creates shortcuts to items to reduce path length
+    - i.e. add *use* in front of crate::garden::vegetables::Asparagus;
+        - Then on can just use Asparagus directly
