@@ -6,11 +6,13 @@ used with many concrete data types.
 // The <> syntax allows a generic type, T in this case, to be used in the function.
 // _thing can by any type - i32, String, structs, and more
 fn _generic_function<T>(_thing: T) {
-    // Not showing an example in this function because the ability to do things is limited.
-    // Since T is generic, Rust can't make assumptions about what T can do.
-    // I.e. T could be an i32, meaning _thing += 1 is valid.
-    // However, T could be String, which meants that _thing += 1 isn't valid.
-    // The use of traits can overcome this, and will be discussed in the next section.
+    /*
+    Not showing an example in this function because the ability to do things is limited.
+    Since T is generic, Rust can't make assumptions about what T can do.
+    I.e. T could be an i32, meaning _thing += 1 is valid.
+    However, T could be String, which meants that _thing += 1 isn't valid.
+    The use of traits can overcome this, and will be discussed in the next section.
+    */
 }
 
 fn main() {
