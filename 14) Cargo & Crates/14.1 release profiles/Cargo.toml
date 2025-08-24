@@ -1,0 +1,22 @@
+# Release profiles = predefined + customizable profiles that allow control for code compilation options
+# Cargo has 2 main ones:
+#       • dev, used for cargo build
+#       • release, used for cargo build --release
+
+# Cargo has default settings for each profile, but you can customize them
+# by adding profile sections.
+
+# specify the number of optimizations for the dev build
+[profile.dev]
+opt-level = 0
+
+# specify the number of optimizations for the release build 
+[profile.release]
+opt-level = 3
+
+[package]
+name = "release_profiles"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
