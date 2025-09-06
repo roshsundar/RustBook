@@ -1,0 +1,24 @@
+# Workspaces are a way to split a project into multiple crates.
+# They share the same Cargo.lock and /target directory.
+
+# Steps to make a workspace:
+#   1. Make a directory. In this case, its /14.3 workspace
+#   2. Create a Cargo.toml file (this file)
+#       • Add a [workspace] label and resolver
+#   3. create the crates with cargo new
+#       • Will auto-add it to the members list in this file
+
+# To allow the crates to depend on each other, 
+# have to add their paths to their Cargo.toml files.
+
+# cargo build will compile the whole project to the workspace /target directory.
+# cargo run -p crate_name, will run that crate
+
+# Run tests for the whole crate with cargo test
+# Run tests for one crate with cargo test -p crate_name
+
+# If you want to publish crates here to crates.io, each must be published separately.
+
+[workspace]
+resolver = "3"
+members = [ "add_one","adder"]

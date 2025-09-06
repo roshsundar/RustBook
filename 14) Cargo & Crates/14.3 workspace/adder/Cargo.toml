@@ -1,0 +1,8 @@
+[package]
+name = "adder"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Add the other library crates as dependancies here
+add_one = {path = "../add_one"}
