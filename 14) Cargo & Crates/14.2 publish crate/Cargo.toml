@@ -1,0 +1,11 @@
+# The instructions on how to acutally publish a crate are at:
+# https://rust-book.cs.brown.edu/ch14-02-publishing-to-crates-io.html#setting-up-a-cratesio-account
+
+[package]
+name = "my_crate"
+version = "0.1.0"
+edition = "2024"
+description = "A example crate of how to make documentation from your code"
+license = "MIT"
+
+[dependencies]
