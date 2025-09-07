@@ -1,0 +1,16 @@
+A pointer = variable that stores an address to memory. Pointers in Rust are represented as references,
+indicated by the & symbol, and borrow the value they point to. They only refer to some data.
+
+
+Smart pointers do the same, but have additional metadata and capabilities.
+In many cases they can own the data they point to, i.e. String and Vec<T>.
+
+There are many smart pointers, and you can even write your own.
+
+The most common standard smart pointers are:
+    • Box<T>, for allocating values on the heap
+    • Rc<T>, a reference counter that allows for multiple ownership
+    • Ref<t> and RefMut<t>, accessed through RefCell<T>, which enforces
+        borrowing rules at runtime instead of comiple time
+
+
