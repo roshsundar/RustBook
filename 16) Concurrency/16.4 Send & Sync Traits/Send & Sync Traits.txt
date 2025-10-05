@@ -1,0 +1,14 @@
+You can extend the standard concurrency features w/ the Send and Sync traits.
+
+Implementing the Send trait for a type indicates that ownership of values of that type can be transferred between threads.
+Most Rust types impl Send, but some notable ones like Rc<t> don't. Arc<T>, which is the tread-safe version of Rc<T>, does impl Send.
+
+Implementing the Sync trait for a type indicates that it's safe for that type to be referenced from multiple threads.
+Most Rust types also impl Sync.
+
+Send and Sync are separate traits as a type could be one, both, or neither.
+    i.e. Rc<T> is neither Send nor Sync.
+    i.e. RefCell<T> are Send, but not Sync.
+    i.e. Mutex<T> is Send and Sync.
+
+Implementing Send and Sync manually is unsafe. Building new concurrent types requires careful thought on how to uphold safety guarantees.
