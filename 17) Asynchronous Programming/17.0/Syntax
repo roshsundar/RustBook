@@ -1,0 +1,11 @@
+Rust asynchronous programming use futures, async, and await.
+
+A future is some value that isn't ready now, but will be in the future.
+futures are types that impl the Future trait.
+Each future holds info abt its progress and when it's considered 'ready'.
+
+async keyword can be applied to blocks and functions to specify that they can be interrupted and resumed.
+Within said block/function, you can use the await keyword to wait for a future to be ready. It pauses and eventually resumes.
+
+Rust compiles async and await code into equivalent code using the Future trait.
+You can use it and impl it for your own types.
