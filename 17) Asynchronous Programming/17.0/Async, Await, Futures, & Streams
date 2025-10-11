@@ -1,0 +1,25 @@
+Many computer operations take a long time to finish. It would be nice to do something else while we wait.
+
+I.e. A program to manage file downloads should be able to download multiple files at the same time instead of sequentially.
+
+We could avoid blocking the main thread by spawining a thread to download each file, but the thread overhead would become a problem.
+
+It would be nice if the download call just didn't block the program.
+
+This is what Rust's async features allow.
+
+
+Concurrency:
+Doing one thing at a time, but switching between tasks.
+i.e. Alternating work on 2 different projects. You can't do both at the same time.
+
+Parallelism:
+Multiple taks being done simultaneously.
+i.e. Having 2 different people work on the projects alone, so each is being done simultaneously.
+
+This is not absolute. Some parts of a task may need to be finished for another to progress.
+
+In software/hardware, a machine w/ a single CPU core can only perform one operation at a time, but can switch between activities - concurrency.
+A CPU w/ multiple cores can perform an activity on each core at the same time - parallelism.
+
+Async in Rust deals with concurrency, not parallelism. 
