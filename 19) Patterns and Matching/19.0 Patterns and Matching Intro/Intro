@@ -1,0 +1,15 @@
+Patterns are a special syntac for matching against the structure of types.
+Using patterns w/ match expressions gives more control over program control flow.
+
+A pattern consists of some combo of the following:
+    • Literals
+    • Destructured arrays, enums, structs, tuples
+    • Variables
+    • Wildcards
+    • Placeholders
+i.e. x or (a, 3) or Some(Color::Red)
+
+In the contexts in which patterns are valid, these components describe the 'shape' of the data.
+The program matches values against the patterns to determine if it has the correct 'shape' of data to continue running some code.
+
+To use a pattern, compare it to a value. If pattern matches value, we can use the value and run some code on it.
